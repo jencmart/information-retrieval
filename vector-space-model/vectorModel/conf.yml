@@ -1,0 +1,137 @@
+# PATHS
+inverted_index:
+    cs_dir: ../../documents_cs
+    cs_list: ../../documents_cs.lst
+    cs_header: ../../extra.xml
+    en_dir: ../../documents_en
+    en_list: ../../documents_en.lst
+    save_dir: ../../out
+
+morphodita:
+    cs_dict: ../../lang_models/czech-morfflex-pdt-161115/czech-morfflex-161115-pos_only.dict
+    cs_tagger: ../../lang_models/czech-morfflex-pdt-161115/czech-morfflex-pdt-161115-pos_only.tagger
+    en_dict: ../../lang_models/english-morphium-wsj-140407/english-morphium-140407.dict
+    en_tagger: ../../lang_models/english-morphium-wsj-140407/english-morphium-wsj-140407.tagger
+
+experiment:
+    paths:
+        base_topic_dir: ../../topics
+        base_result_dir: ../../res
+        base_train_dir: ../../train
+        trec_eval_path: ../../eval/trec_eval
+
+
+# Program will start the
+current_run:
+    type: train # run / train
+
+# RUNS
+run:
+    run-0:
+        name: run-0
+        terms: lemma
+        lower_casing: False
+        removing_stopwords: 0.0
+        term_weighting: natural
+        document_frequency_weighting: none
+        vector_normalization: cosine
+        similarity_measurement: cosine
+        relevance_feedback: none
+        query_expansio: none
+        query_construction: title
+
+    run-1:
+        name: run-1
+        terms: lemma
+        lower_casing: True
+        removing_stopwords: 0.2
+        term_weighting: natural
+        document_frequency_weighting: none
+        vector_normalization: cosine
+        similarity_measurement: cosine
+        relevance_feedback: none
+        query_expansio: none
+        query_construction: title
+
+# TRAIN
+train:
+    inv_idx_type: bow
+
+    base_run_name: train
+    experiment_log: ../../res/experimet-results.log
+    languages:
+        - cs
+        - en
+
+    parser: morphodita
+
+    terms:
+        - lemma
+#        - word
+
+    normalizations:
+        - numnorm-punct-accent-casefold
+        - numnorm-punct-casefold
+        - numnorm-case_fold
+        - nonum-punct-casefold
+        - none
+        - numnorm # numbers to text
+        - accent
+        - punct
+        - nonum # remove numbers
+        - casefold
+
+    force_rebuild: False
+
+    stop_word_removals:
+        - lexicon-based
+        - none
+
+    term_weightings:
+        - log
+#        - natural
+        - log-average
+#        - augmented
+#        - bool
+
+    doc_frequency_weightings:
+        - probabilistic-idf
+        - idf
+#        - idf-squared
+#        - entropy
+#        - GFIDF
+#        - none
+
+    vector_normalizations:  # todo byte-size
+#        - pivot-unique
+        - cosine
+#        - none
+
+    query_constructions:
+        - title
+#        - desc
+#        - narr
+
+    query_expansions:
+        - none
+
+    similarity_measurements:
+        - cosine-sim
+
+    relevance_feedback:
+        - none
+        - pseudo-relevance
+
+    pseudo-relevance:
+        k: 10
+        alpha: 8.0
+        beta: 0.8
+        gamma: 0.0 # ... for 0.0 negative not used
+        limit-query-size: False  # False / int
+
+    pivot-unique:
+        slope: 0.2     # float
+        pivot: avg-len # 'avg-len' / float
+
+    max_results: 1000
+

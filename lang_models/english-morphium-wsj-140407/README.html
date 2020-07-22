@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<META NAME="generator" CONTENT="http://txt2tags.org">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<TITLE>MorphoDiTa</TITLE>
+</HEAD>
+<BODY>
+
+<DIV CLASS="header" ID="header">
+<H1>MorphoDiTa</H1>
+</DIV>
+
+<DIV CLASS="toc">
+
+  <OL>
+  <LI><A HREF="#english-morphium-wsj">English MorphoDiTa Models</A>
+    <UL>
+    <LI><A HREF="#english-morphium-wsj_acknowledgements">1.1. Acknowledgements</A>
+      <UL>
+      <LI><A HREF="#toc3">1.1.1. Publications</A>
+      </UL>
+    <LI><A HREF="#toc4">1.2. English Morphological System</A>
+    <LI><A HREF="#toc5">1.3. English Model</A>
+    <LI><A HREF="#toc6">1.4. No Negations Variant</A>
+    <LI><A HREF="#toc7">1.5. English Model Changes</A>
+    </UL>
+  </OL>
+
+</DIV>
+<DIV CLASS="body" ID="body">
+<P>
+To use this model, you need MorphoDiTa: Morphological Dictionary and Tagger, an
+open-source tool for morphological analysis of natural language texts. Please visit the MorphoDiTa
+website <A HREF="http://ufal.mff.cuni.cz/morphodita">http://ufal.mff.cuni.cz/morphodita</A> for more information.
+</P>
+
+<A NAME="english-morphium-wsj"></A>
+<H1>1. English MorphoDiTa Models</H1>
+
+<P>
+English models are created using the following data:
+</P>
+
+<UL>
+<LI><I>SCOWL (Spell Checker Oriented Word Lists)</I>: This word list is used
+  in morphological generation to create all possible word forms of a given
+  word.
+<P></P>
+  Copyright: <I>Copyright 2000-2011 by Kevin Atkinson. Permission to use, copy, modify, distribute and sell these word lists, the associated scripts, the output created from the scripts, and its documentation for any purpose is hereby granted without fee, provided that the above copyright notice appears in all copies and that both that copyright notice and this permission notice appear in supporting documentation. Kevin Atkinson makes no representations about the suitability of this array for any purpose. It is provided "as is" without express or implied warranty.</I>
+<P></P>
+<LI><I>Wall Street Journal</I>, part of the Penn Treebank 3: Morphologically
+  annotated texts which are commonly used to train English POS tagger.
+<P></P>
+  Licensing: Available as LDC99T42 in LDC catalog under LDC User Agreement.
+</UL>
+
+<P>
+The resulting models are distributed under the
+<A HREF="http://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA</A> licence.
+English models work in MorphoDiTa version 1.1 or later.
+</P>
+<P>
+English models are versioned according to the release date, the version
+format is <CODE>YYMMDD</CODE>, where <CODE>YY</CODE>, <CODE>MM</CODE> and <CODE>DD</CODE> are two-digit
+representation of year, month and day, respectively. The latest version is
+140407.
+</P>
+
+<A NAME="english-morphium-wsj_acknowledgements"></A>
+<H2>1.1. Acknowledgements</H2>
+
+<P>
+This work has been using language resources developed and/or stored and/or
+distributed by the LINDAT/CLARIN project of the Ministry of Education of the
+Czech Republic (project <I>LM2010013</I>).
+</P>
+<P>
+The morphological POS analyzer development was supported by grant of the Ministry
+of Education, Youth and Sports of the Czech Republic No. <I>LC536</I> "Center for
+Computational Linguistics". The morphological POS analyzer research was
+performed by Johanka Spoustová (Spoustová 2008; the <CODE>Treex::Tool::EnglishMorpho::Analysis</CODE>
+Perl module). The lemmatizer was implemented by Martin Popel (Popel 2009; the
+<CODE>Treex::Tool::EnglishMorpho::Lemmatizer</CODE> Perl module). The lemmatizer is
+based on <CODE>morpha</CODE>, which was released under LGPL licence as a part of
+<A HREF="http://ilexir.co.uk/applications/rasp">RASP system</A>.
+</P>
+<P>
+The tagger algorithm and feature set research was supported by the projects
+<I>MSM0021620838</I> and <I>LC536</I> of Ministry of Education, Youth and Sports of the Czech Republic,
+<I>GA405/09/0278</I> of the Grant Agency of the Czech Republic and <I>1ET101120503</I> of
+Academy of Sciences of the Czech Republic. The research was performed by
+Drahomíra "johanka" Spoustová, Jan Hajič, Jan Raab and Miroslav Spousta.
+</P>
+
+<A NAME="toc3"></A>
+<H3>1.1.1. Publications</H3>
+
+<UL>
+<LI>(Popel 2009) Martin Popel. <I><A HREF="http://ufal.mff.cuni.cz/~popel/papers/master_thesis.pdf">Ways to Improve the Quality of English-Czech Machine Translation.</A></I> Master Thesis at Institute of Formal and Applied Linguistics, Faculty of Mathematics and Physics, Charles University in Prague (2009).
+<P></P>
+<LI>(Spoustová 2008) Drahomíra "johanka" Spoustová. <I><A HREF="http://ufal.mff.cuni.cz/morphium/">Morphium &ndash; morphological analyser for Penn treebank POS tagset.</A></I> Perl Software developed at Institute of Formal and Applied Linguistics, Faculty of Mathematics and Physics, Charles University in Prague (2008).
+<P></P>
+<LI>(Spoustová et al. 2009) Drahomíra "johanka" Spoustová, Jan Hajič, Jan Raab, Miroslav Spousta. 2009. <I><A HREF="http://aclweb.org/anthology//E/E09/E09-1087.pdf">Semi-Supervised Training for the Averaged Perceptron POS Tagger.</A></I> In Proceedings of the 12th Conference of the European Chapter of the ACL (EACL 2009), pages 763-771, Athens, Greece, March. Association for Computational Linguistics.
+</UL>
+
+<A NAME="toc4"></A>
+<H2>1.2. English Morphological System</H2>
+
+<P>
+The English morphology uses standard Penn Treebank POS tags. Nevertheless,
+the lemma structure is unique:
+</P>
+
+<UL>
+<LI>The lemmatizer recognizes negative prefixes and removes it from the lemma.
+  In terms of MorphoDiTa API, <I>raw lemma</I> is the lemma without negative prefix.
+<LI>The negative prefix is also stored to allow morphological generation of word
+  form with the same negative prefix. In terms of MorphoDiTa API, <I>lemma id</I>
+  is the raw lemma plus the negative prefix.
+</UL>
+
+<P>
+The negative prefix is separated from the (always nonempty) lemma using a <CODE>^</CODE>
+character (<CODE>able^un</CODE>). During morphological generation, the negative prefix is honored.
+Furthermore, when the lemma ends with <CODE>^</CODE> (i.e., negative prefix is empty, as
+in <CODE>able^</CODE>), forms with negative prefixes are generated. It is also possible
+to generate all forms without any negative prefix by appending <CODE>+</CODE> after the lemma
+(for example <CODE>able+</CODE>).
+</P>
+
+<A NAME="toc5"></A>
+<H2>1.3. English Model</H2>
+
+<P>
+The English model contains the following files:
+</P>
+
+<DL>
+<DT><CODE>english-morphium-&lt;version&gt;.dict</CODE></DT><DD>
+  Morphological dictionary. The SCOWL word list has been automatically analyzed
+  and lemmatized and uses as the dictionary. The guesser performing the analyzation
+  and lemmatization is available.
+<P></P>
+<DT><CODE>english-morphium-wsj-&lt;version&gt;.tagger</CODE></DT><DD>
+  Tagger trained on the training portion of Wall Street Journal (Sections 0-18)
+  and tuned on the development portion (Sections 19-21). Contains the
+  <CODE>english-morphium-&lt;version&gt;.dict</CODE> morphological dictionary.
+<P></P>
+  The latest version <CODE>english-morphium-wsj-140407.tagger</CODE> reaches 97.27% tag
+  accuracy on Wall Street Journal test portion (Section 22-24). Model speed: ~60k words/s,
+  model size: 6MB.
+</DL>
+
+<A NAME="toc6"></A>
+<H2>1.4. No Negations Variant</H2>
+
+<P>
+Stripping of negative prefixes (or handling the lemmas with negative prefixes
+stripped) may not be desirable. Therefore, a variant of the English model
+denoted by <CODE>no_negation</CODE> is provided, which does not strip negative prefixes
+from lemmas.
+</P>
+
+<DL>
+<DT><CODE>english-morphium-&lt;version&gt;-no_negation.dict</CODE></DT><DD>
+  Morphological dictionary which does not strip negative lemma prefixes. The
+  SCOWL word list has been automatically analyzed and lemmatized and uses as
+  the dictionary. The guesser performing the analyzation and lemmatization is
+  available.
+<P></P>
+<DT><CODE>english-morphium-wsj-&lt;version&gt;-no_negation.tagger</CODE></DT><DD>
+  Tagger which does not strip negative lemma prefixes, trained on the training
+  portion of Wall Street Journal (Sections 0-18) and tuned on the development
+  portion (Sections 19-21). Contains the
+  <CODE>english-morphium-&lt;version&gt;-no_negation.dict</CODE> morphological dictionary.
+<P></P>
+  The latest version <CODE>english-morphium-wsj-140407-no_negation.tagger</CODE> reaches 97.25%
+  tag accuracy on Wall Street Journal test portion (Section 22-24). Model
+  speed: ~60k words/s, model size: 6MB.
+</DL>
+
+<A NAME="toc7"></A>
+<H2>1.5. English Model Changes</H2>
+
+<DL>
+<DT><CODE>english-morphium-140407</CODE> and <CODE>english-morphium-wsj-140407</CODE> (require MorphoDiTa 1.1 or later)</DT><DD>
+  Recognize also "non-" as a negative prefix. Formerly, only "non" was recognized.
+<P></P>
+<DT><CODE>english-morphium-140304</CODE> and <CODE>english-morphium-wsj-140304</CODE> (require MorphoDiTa 1.0 or later)</DT><DD>
+  Initial release.
+</DL>
+
+</DIV>
+<!-- html code generated by txt2tags 2.6 (http://txt2tags.org) -->
+<!-- cmdline: txt2tags -t html -C not_web.conf -C strip_level.conf -o- morphodita_model_english-morphium-wsj_readme.t2t -->
+</BODY></HTML>
